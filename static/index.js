@@ -46,13 +46,17 @@ $("#parse").click(function() {
   }).done(function(data) {
     $("#loader").addClass("hidden");
     $("#result").empty();
-    $("#result").append(makeHTML(data.ast, data.sentence));
+    if (data.error) {
+      $("#result").text(data.error);
+    } else {
+      $("#result").append(makeHTML(data.ast, data.sentence));
+    }
     $("#result").removeClass("hidden");
   })
   .fail(function() {
     $("#loader").addClass("hidden");
     $("#result").empty();
-    $("#result").text("Couldn't parse your sentence :(");
+    $("#result").text("Server error :(");
     $("#result").removeClass("hidden");
   });
 });
