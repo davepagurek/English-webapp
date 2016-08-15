@@ -48,5 +48,11 @@ $("#parse").click(function() {
     $("#result").empty();
     $("#result").append(makeHTML(data.ast, data.sentence));
     $("#result").removeClass("hidden");
+  })
+  .fail(function() {
+    $("#loader").addClass("hidden");
+    $("#result").empty();
+    $("#result").text("Couldn't parse your sentence :(");
+    $("#result").removeClass("hidden");
   });
 });
