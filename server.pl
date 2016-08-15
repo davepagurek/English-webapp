@@ -13,7 +13,7 @@ use JSON::Tiny;
 get "/parse" =>  {
   content_type("application/json");
   my $text = request.params<text> || "This is a test.";
-  my $match = English::Grammar.parse($text);
+  my $match = English::Grammar.parse($text.trim);
   if $match {
     to-json({
       sentence => $text,
