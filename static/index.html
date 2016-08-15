@@ -4,15 +4,29 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <title>English Parser</title>
   </head>
   <body>
-    <h1>English parser</h1>
-    <textarea class="autoExpand" id="sentence">The quick brown fox jumped over the lazy dog.</textarea>
-    <button id="parse">Parse</button>
+    <input type="text" id="sentence" value="The quick brown fox jumped over the lazy dog." />
+    <button id="parse" class="unclicked">Parse</button>
     <div id="loader" class="hidden">
       Parsing...
     </div>
     <div id="result" class="hidden"></div>
+    <div class="about">
+      <h2>About</h2>
+      <p>This is a small demo of a <a href="https://github.com/davepagurek/English">Perl 6 English parsing module.</a> It matches words against a limited dictionary of parts of speech, and fits the tokens to a context-free grammar. You can <a href="http://www.davepagurek.com/blog/demystifying-english-parsing/">read about how it works on my blog.</a></p>
+      <p>It currently has support for:</p>
+      <ul>
+        <li>Simple sentences (noun phrase followed by verb phrase)</li>
+        <li>Compount sentences (independent clauses separated by "and")</li>
+      </ul>
+      <p>In progress:</p>
+      <ul>
+        <li>Imperative sentences</li>
+        <li>Commas</li>
+      </ul>
+    </div>
     <script type="text/javascript" src="index.js"></script>
   </body>
 </html>

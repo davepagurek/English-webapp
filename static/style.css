@@ -1,17 +1,18 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif';
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Droid Serif', sans-serif;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  margin:100px 50px;;
 }
 
 button {
   margin: 15px;
   border-radius: 4px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Droid Serif', sans-serif;
   border: 0;
   padding: 15px;
   font-size: 14px;
@@ -24,18 +25,35 @@ button:hover {
   transform: scale(1.1) translate3d( 0, 0, 0);
 }
 
-textarea {
-  font-family: 'Open Sans', sans-serif;
+a {
+  color: #D91616;
+}
+a:hover {
+  color: #F93636;
+}
+
+#sentence {
+  font-family: 'Droid Serif', sans-serif;
   border: 0;
   border-bottom: 2px solid #DDD;
   margin:10px;
   padding: 10px;
   font-size: 14px;
+  width: 350px;
+  transition: all ease 0.3s;
+  text-align: center;
+}
+#sentence:hover {
+  border-bottom: 2px solid #D91616;
+}
+#sentence:focus {
+  outline: 0;
+  border-bottom: 2px solid #333;
 }
 
 #loader {
   opacity: 1;
-  height: 200px;
+  height: 50px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -56,12 +74,11 @@ textarea {
   flex-direction: row;
   color: #000;
   text-align: center;
-  justify-content: stretch;
+  justify-content: space-around;
 }
 .child {
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
   margin: 0 2px 2px 2px;
 }
 #result .ast:first-child .child:first-child {
@@ -75,11 +92,51 @@ textarea {
 }
 .leaf {
   justify-content: center;
+  padding: 5px;
 }
 .type {
-  border-top: 2px solid #000;
+  border-top: 1px solid #000;
   color: #000;
   opacity:0.3;
-  font-size: 0.8rem;
-  font-variant: small-caps;
+  font-size: 0.7rem;
+  padding: 2px;
+  text-transform: uppercase;
+  position: relative;
+}
+.type:after {
+  content:"";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.about {
+  max-width: 350px;
+  line-height: 1.5em;
+  color:#777;
+}
+
+h2 {
+  text-align: center;
+  margin-top:60px;
+}
+
+.unclicked {
+  animation-duration: 2s;
+  animation-name: unclicked;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes unclicked {
+  0% {
+    background-color: #D91616;
+  }
+  100% {
+    background-color: #F99646;
+  }
 }

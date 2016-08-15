@@ -1,18 +1,3 @@
-$(document)
-.one('focus.textarea', '.autoExpand', function(){
-  var savedValue = this.value;
-  this.value = '';
-  this.baseScrollHeight = this.scrollHeight;
-  this.value = savedValue;
-})
-.on('input.textarea', '.autoExpand', function(){
-  var minRows = this.getAttribute('data-min-rows')|0,
-    rows;
-  this.rows = minRows;
-  rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 16);
-  this.rows = minRows + rows;
-});
-
 function makeHTML(ast, sentence) {
   var div = $("<div>", { "class": "ast" });
   if (ast.children.length > 0) {
@@ -37,7 +22,17 @@ function makeHTML(ast, sentence) {
   return div;
 }
 
+$("#sentence").keyup(function (e) {
+  if (e.keyCode == 13) {
+    parse();
+  }
+});
 $("#parse").click(function() {
+  parse();
+});
+
+function parse() {
+  $("#parse").removeClass("unclicked");
   $("#loader").removeClass("hidden");
   $("#result").addClass("hidden");
   $.ajax({
@@ -59,4 +54,4 @@ $("#parse").click(function() {
     $("#result").text("Server error :(");
     $("#result").removeClass("hidden");
   });
-});
+}
