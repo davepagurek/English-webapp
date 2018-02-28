@@ -4,7 +4,6 @@ use v6;
 use lib "../English/lib";
 use English;
 use Bailador;
-use JSON::Tiny;
 
 #my $main = "static/index.html".IO.slurp;
 #my $js = "static/index.js".IO.slurp;
@@ -41,7 +40,8 @@ get '/' => {
   #$c.send($main);
 }
 
-baile(3001);
+config.port = 3001;
+baile;
 #say English::Grammar.parse: "The quick brown fox jumped over the lazy dog.";
 #say English::Grammar.parse: "I saw the man with the binoculars.";
 #say English::Grammar.parse: "The big group sings terribly";
